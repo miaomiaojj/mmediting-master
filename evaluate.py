@@ -45,7 +45,7 @@ if os.path.isdir(submit_dir) and os.path.isdir(truth_dir):
 
     # Create the evaluation score path
     output_filename = os.path.join(output_dir, 'scores.txt')
-	print(mean_psnr)
+	
 
     with open(output_filename, 'w') as f3:
         f3.write('PSNR: {}'.format(mean_psnr))
