@@ -124,7 +124,7 @@ data = dict(
     test=dict(
         type=val_dataset_type,
         lq_folder='/content/mmediting-master/dataset/test/LQ',
-        gt_folder='/content/mmediting-master/dataset/test/GT',
+        gt_folder='/content/mmediting-master/dataset/val/GT',
         pipeline=test_pipeline,
         scale=scale,
         filename_tmpl='{}'))
@@ -133,7 +133,7 @@ data = dict(
 optimizers = dict(generator=dict(type='Adam', lr=2e-4, betas=(0.9, 0.999)))
 
 # learning policy
-total_iters = 300000
+total_iters = 500000
 lr_config = dict(
     policy='CosineRestart',
     by_epoch=False,
