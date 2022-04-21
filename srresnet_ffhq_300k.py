@@ -54,7 +54,7 @@ train_pipeline = [
             noise_type=['gaussian'],
             noise_prob=[1],
             gaussian_sigma=[0, 25],
-            gaussian_gray_noise_prob=0),
+            gaussian_gray_noise_prob=0.5),
         keys=['lq'],
     ),
     dict(
@@ -130,15 +130,15 @@ data = dict(
         filename_tmpl='{}'))
 
 # optimizer
-optimizers = dict(generator=dict(type='Adam', lr=2e-4, betas=(0.9, 0.999)))
+optimizers = dict(generator=dict(type='Adam', lr=4e-4, betas=(0.9, 0.999)))
 
 # learning policy
-total_iters = 500000
+total_iters = 600000
 lr_config = dict(
     policy='CosineRestart',
     by_epoch=False,
-    periods=[150000, 150000],
-    restart_weights=[1, 1],
+    periods=[150000, 150000, 150000, 150000],
+    restart_weights=[1, 0.5, 0.5, 0.5],
     min_lr=1e-7)
 
 checkpoint_config = dict(interval=5000, save_optimizer=True, by_epoch=False)

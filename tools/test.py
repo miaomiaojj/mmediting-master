@@ -92,6 +92,7 @@ def main():
 
     # build the model and load checkpoint
     model = build_model(cfg.model, train_cfg=None, test_cfg=cfg.test_cfg)
+	print("parameters: ",sum(p.numel() for p in model.parameters()))
 
     args.save_image = args.save_path is not None
     empty_cache = cfg.get('empty_cache', False)
